@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Sandworm</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
+	<head>
+	  <title><%= yield(:title) %> | Great Worm Express Distro</title>
+	  <%= stylesheet_link_tag    "application", :media => "all" %>
+	  <%= javascript_include_tag "application" %>
+	  <%= csrf_meta_tags %>
+	</head>
 <body>
 
 <%= yield %>

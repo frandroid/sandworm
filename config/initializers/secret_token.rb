@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Sandworm::Application.config.secret_token = '685951d2ba4ba96fb6fef375b752def6122694697089ee7eb57cc6c94fe640876fc964c6d93f8bc8486cfc0c6168207f5b3b24ffd9907789249a7a0fe98f8805'
+Sandworm::Application.config.secret_token = 'd3ec64c49d29fd6b3b500bcbf53ae000bb4fd844bd9ef91323308b612da2e3ffdd74249ba8285bd6a7814fb08197f65a7dcaada91c97aa05972088e5f7e11997'

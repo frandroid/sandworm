@@ -1,44 +1,35 @@
 require 'spec_helper'     
 
 describe "Static pages" do
-
+   
+   subject { page }
+   
    describe "Home page" do
- 
-      it "should have the content 'Great Worm'" do
-         visit '/static_pages/home'
-         page.should have_selector('h1', :text => 'Great Worm')
-      end
-    
-      it "should have the base title" do
-         visit '/static_pages/home'
-         page.should have_selector('title',
-                          :text => "Great Worm Express Distro")
-      end  
       
-      it "should not have a custom page title" do
-         visit '/static_pages/home'
-         page.should_not have_selector('title', :text => 'Home')
-      end
+      before { visit root_path }
+   
+      it { should have_selector('h1', :text => 'Great Worm') }
+      it { should have_selector('title', :text => "Great Worm Express Distro") }
+      it { should_not have_selector('title', :text => 'Home') }
    end
  
    describe "Help page" do
- 
       it "should have the content 'Help'" do
-         visit '/static_pages/help'
+         visit help_path
          page.should have_content('Help')
       end
    end
  
    describe "About page" do
- 
+   
+      before { visit about_path }
+      
       it "should have the content 'About Great Worm'" do
-         visit '/static_pages/about'
          page.should have_content('About Great Worm')
       end
 
       it "should have the title 'About'" do
-        visit '/static_pages/about'
-        page.should have_selector('title',
+         page.should have_selector('title',
                           :text => "About | Great Worm Express Distro")
       end
 
@@ -47,10 +38,24 @@ describe "Static pages" do
    describe "Order page" do
  
       it "should have the content 'How to Order'" do
-         visit '/static_pages/order'
+         visit order_path
          page.should have_content('How to Order')
       end
+   end 
+   
+   describe "Contact page" do
+
+      before { visit contact_path }
+      
+      it "should have the h1 'Contact'" do
+         page.should have_selector('h1', text: 'Contact')
+      end
+      
+      it "should have title 'Contact'" do
+         page.should have_selector('title', text: 'Contact | Great Worm Express Distro')
+      end
    end
+   
    
    
 end

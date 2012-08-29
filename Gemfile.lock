@@ -183,7 +183,7 @@ DEPENDENCIES
   faker (= 1.0.1)
   guard-rspec
   guard-spork
-  jquery-rails
+  jquery-rails (= 2.0.0)
   pg
   rails (= 3.2.6)
   rspec-rails (= 2.10.0)

@@ -1,7 +1,7 @@
 Sandworm::Application.routes.draw do
-   get "users/new"
 
-   resources :users
+   resources :users, :products
+ 
 
    root to: 'static_pages#home'
                                        

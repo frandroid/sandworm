@@ -1,0 +1,82 @@
+<%= form_for(@product) do |f| %>
+	<% if @product.errors.any? %>
+		<div id="error explanation">
+			<h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+			<ul>
+			<% @product.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+			<% end %>
+			</ul>
+		</div>
+	<% end %>
+	
+	<div class="field">
+		<%= f.label :name %><br>
+		<%= f.text_field :name %>
+   </div>
+
+	<div class="field">
+		<%= f.label :price %><br>
+		<%= f.text_field :price %>
+   </div>
+
+	<div class="field">
+		<%= f.label :description %><br>
+		<%= f.text_area :description %>
+   </div>
+
+	<div class="field">
+		<%= f.label :inventory %><br>
+		<%= f.text_field :inventory %>
+   </div>
+
+	<div class="field">
+		<%= f.label "Weight, in grams" %><br>
+		<%= f.text_field :weight %>
+   </div>
+
+	<div class="field">
+		<%= f.label "Length, in cm" %><br>
+		<%= f.text_field :length %>
+   </div>
+
+	<div class="field">
+		<%= f.label "Width, in cm" %><br>
+		<%= f.text_field :width %>
+   </div>
+
+	<div class="field">
+		<%= f.label "Height, in MILLIMETERS" %><br>
+		<%= f.text_field :height %>
+   </div>
+
+	<div class="field">
+	   <%= f.label "UPC" %><br>
+		<%= f.text_field :upc %>
+   </div>
+
+	<div class="field">
+		<%= f.label :wholesale_price %><br>
+		<%= f.text_field :wholesale_price %>
+   </div>
+
+	<div class="field">
+		<%= f.label :cost %><br>
+		<%= f.text_field :cost %>
+   </div>
+
+	<div class="field">
+		<%= f.label :active %><br>
+		<%= f.check_box :active %>
+   </div>
+
+	<div class="field">
+		<%= f.label :visible %><br>
+		<%= f.check_box :visible %>
+   </div>
+
+	<div class="actions">
+		<%= f.submit %>
+	</div>
+	
+<% end %>

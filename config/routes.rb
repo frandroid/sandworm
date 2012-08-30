@@ -1,7 +1,7 @@
 Sandworm::Application.routes.draw do
 
    resources :users, :products
- 
+   resources :sessions, only: [:new, :create, :destroy]
 
    root to: 'static_pages#home'
                                        
@@ -10,7 +10,10 @@ Sandworm::Application.routes.draw do
    match '/order',   to: "static_pages#order"
    match '/contact', to: "static_pages#contact"
 
-   match '/signup',  to: 'users#new'
+   match '/signup',  to: 'users#new'                   
+   match '/signin',  to: 'sessions#new'
+   match '/signout', to: 'sessions#destroy', via: :delete
+   
 
   
 

@@ -12,11 +12,9 @@ class ProductsController < ApplicationController
       if @product.save
          redirect_to product_url(@product)
       else
-         if @product.upc.nil? 
-            @product.upc = Product.last.id + 1         ### Will this cause collisions?
-         end
-         render 'new'                             
+         @product.upc ||= Product.last.id + 1         ### Will this cause collisions?
       end
+      render 'new'                             
    end               
    
    def edit

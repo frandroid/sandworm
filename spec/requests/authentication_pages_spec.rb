@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Authentication" do
+describe "Authentication |" do
    
    subject { page }
    
@@ -122,6 +122,18 @@ describe "Authentication" do
             specify { response.should redirect_to(root_path) }
          end
          
+      end 
+      
+      describe "as admin" do
+         let(:admin) { FactoryGirl.create(:admin)}
+         before { sign_in admin }
+         
+         describe "deleting oneself" do
+            before { delete user_path(admin) }
+            specify { response.should redirect_to(root_path) }
+         end
       end
-   end
-end
+         
+
+   end   # authorization
+end   # authentication

@@ -1,11 +1,12 @@
-   class Product < ActiveRecord::Base
-  attr_accessible :active, :category_id, :cost, :description, :details_id, :height, :inventory, :length, :name, :product_type_id, :price, :upc, :visible, :weight, :wholesale_price, :width
-  validates :name, presence: true, length: { maximum: 50 }, uniqueness: { case_sensitive: false }
-  validates :upc, uniqueness: { case_sensitive: false }, :allow_nil => true
-  
-  before_save { |product| product.upc = upc.to_s.upcase }
-  
+class Product < ActiveRecord::Base
+   attr_accessible :active, :category_id, :cost, :description, :details_id, :height, :inventory, :length, :name, :product_type_id, :price, :upc, :visible, :weight, :wholesale_price, :width
+   validates :name, presence: true, length: { maximum: 50 }, uniqueness: { case_sensitive: false }
+   validates :upc, uniqueness: { case_sensitive: false }, :allow_nil => true
+   belongs_to :category
 
+  
+   before_save { |product| product.upc = upc.to_s.upcase }
+   
 
 end
 

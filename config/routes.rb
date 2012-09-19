@@ -1,5 +1,7 @@
 Sandworm::Application.routes.draw do
 
+  resources :categories
+
    resources :users, :products
    resources :sessions, only: [:new, :create, :destroy]
 

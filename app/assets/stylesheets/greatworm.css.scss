@@ -6,7 +6,6 @@ html {
 
 body {
 	font-size: 100.01%;   /* fixes opera/IE/safari bugs */
-	/* padding-top: 2em; */
 }
 
 section {
@@ -28,7 +27,15 @@ textarea {
 .pull-right {
 float:right;
 }
-          
+
+.pull-left {
+float:left;
+}        
+
+#wrapper {
+	width: 40em;
+	margin: 0 auto;
+}  
 
 
 /* *** mixins, variables, etc. */
@@ -49,14 +56,14 @@ $grayLighter: #eeeeee;
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
-	margin-bottom: 1em;
+  margin-bottom: 1em;
+
 }
 
 h1 {
-  # font-size: 3em;
-  # letter-spacing: -2px;
-  # margin-bottom: 30px;
-  # text-align: center;
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
 }
 
 h2 {
@@ -169,12 +176,38 @@ aside {
 /* forms */
 
 input, textarea, select, .uneditable-input {
-  border: 1px solid #bbb;
-  width: 100%;
+	width: 100%;
+	border: 1px solid #bbb;
+	font-size: 1em;
   padding: 10px;
   height: auto;
-  margin-bottom: 15px;
-  @include box_sizing;
+  margin-bottom: 15px; 
+	@include box_sizing;  
+
+}
+
+label {
+cursor: pointer;  
+font-size: 1.3em;  
+
+}                
+
+form {
+}
+
+.sign-in {
+
+}
+
+
+
+
+.btn {
+	input {
+		border-radius: 4px;
+		width: auto;
+		float: right;
+	}
 }
 
 #error_explanation {
@@ -188,7 +221,7 @@ input, textarea, select, .uneditable-input {
 .field_with_errors {
   @extend .control-group;
   @extend .error;
- }
+ }  
 
 
 /* users index */
@@ -205,8 +238,7 @@ input, textarea, select, .uneditable-input {
 		}
 	}
 }
-
-
+  
 
 
 /* miscellaneous */

@@ -1,0 +1,8 @@
+<H1>Full product list</h1>
+	<ul class="nav-menu center">
+		<li><%= link_to "New zine", new_product_path %></li>
+	</ul>
+
+<ul>
+		<%= render partial: 'short', collection: @products %>
+</ul>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120914171934) do
+ActiveRecord::Schema.define(:version => 20120927045249) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -22,10 +22,25 @@ ActiveRecord::Schema.define(:version => 20120914171934) do
     t.datetime "updated_at",  :null => false
   end
 
+  create_table "formats", :force => true do |t|
+    t.string   "name"
+    t.integer  "width"
+    t.integer  "length"
+    t.integer  "height"
+    t.integer  "weight"
+    t.integer  "medium_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "media", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "products", :force => true do |t|
     t.string   "name"
-    t.integer  "product_type_id"
-    t.integer  "details_id"
     t.integer  "inventory"
     t.integer  "length"
     t.integer  "width"
@@ -41,9 +56,35 @@ ActiveRecord::Schema.define(:version => 20120914171934) do
     t.decimal  "cost",            :precision => 8, :scale => 2
     t.datetime "created_at",                                    :null => false
     t.datetime "updated_at",                                    :null => false
+    t.string   "subtitle"
+    t.integer  "medium_id"
+    t.integer  "series_id"
+    t.integer  "format_id"
+    t.integer  "pages"
+    t.integer  "playtime"
+    t.date     "pub_date"
+    t.boolean  "can_wholesale"
+    t.integer  "minimum_stock"
+    t.integer  "sold"
+    t.string   "country_code"
   end
 
+  add_index "products", ["active"], :name => "index_products_on_active"
+  add_index "products", ["can_wholesale"], :name => "index_products_on_can_wholesale"
+  add_index "products", ["category_id"], :name => "index_products_on_category_id"
+  add_index "products", ["format_id"], :name => "index_products_on_format_id"
+  add_index "products", ["medium_id"], :name => "index_products_on_medium_id"
   add_index "products", ["name", "upc"], :name => "index_products_on_name_and_upc", :unique => true
+  add_index "products", ["series_id"], :name => "index_products_on_series_id"
+  add_index "products", ["visible"], :name => "index_products_on_visible"
+
+  create_table "series", :force => true do |t|
+    t.string   "name"
+    t.string   "url"
+    t.string   "zinewiki"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "name"

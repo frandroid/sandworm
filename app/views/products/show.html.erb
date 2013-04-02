@@ -1,10 +1,20 @@
+
 <section>
 <h1><%= @product.name %></h1>
-<p><strong>Category: </strong><%= @product.category.name %>
-<p><strong>Description: </strong>
-	<%= @product.description unless @product.description.nil? %>
-</p>
-<p><strong>Price: </strong><%= number_to_currency(@product.price) unless @product.price.nil? %></p>
+
+<p><strong>Description: </strong><%= @product.description %></p>
+<p>From <%= Carmen::Country.coded(@product.country_code).name %>
+<p><strong>Details: </strong>
+<% @comma = ", " %>
+<%= @product.medium.name + @comma unless @product.medium.nil? %>
+<%= @product.format.name + @comma unless @product.format.nil? %>
+<%= @product.weight.to_s + "g," unless @product.medium.nil? %>
+<%= number_to_currency(@product.price) unless @product.price.nil? %>
+
+<% if !@product.series.nil? && Product.where(:series_id => @product.series_id).count > 1 %>
+	<p><%= link_to "See other " + @product.series.name + " titles", "#" %></p>
+<% end %>
+
 
 </section>
 <%if current_user.admin? %>

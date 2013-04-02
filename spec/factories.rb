@@ -6,6 +6,9 @@ FactoryGirl.define do
       width       8
       height      4
       weight      23
+      category
+      medium
+      format
       description "Best zine EVER"
       upc         "2341324UTIUYI1212"
       visible     true
@@ -28,4 +31,23 @@ FactoryGirl.define do
       end
    end
 end   
-      
+          
+FactoryGirl.define do  
+   factory :category do
+      name "cinemas"
+      description "I love going to the cinema"
+      note "yeah"
+   end
+end
+       
+FactoryGirl.define do
+   factory :medium do
+      name "Zine"
+   end
+end                    
+
+FactoryGirl.define do
+   factory :format do
+      name "Half-letter"
+   end
+end

@@ -51,8 +51,6 @@ end
 #
 #  id              :integer         not null, primary key
 #  name            :string(255)
-#  product_type_id :integer
-#  details_id      :integer
 #  inventory       :integer
 #  length          :integer
 #  width           :integer
@@ -68,5 +66,15 @@ end
 #  cost            :decimal(8, 2)
 #  created_at      :datetime        not null
 #  updated_at      :datetime        not null
+#  subtitle        :string(255)
+#  medium_id       :integer
+#  series_id       :integer
+#  format_id       :integer
+#  pages           :integer
+#  playtime        :integer
+#  pub_date        :date
+#  can_wholesale   :boolean
+#  minimum_stock   :integer
+#  sold            :integer
 #
 

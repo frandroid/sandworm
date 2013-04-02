@@ -1,8 +1,17 @@
 Sandworm::Application.routes.draw do
 
+  resources :formats
+
+  resources :media
+
+  resources :series
+
+  resources :product_types
+
   resources :categories
 
    resources :users, :products
+   
    resources :sessions, only: [:new, :create, :destroy]
 
    root to: 'static_pages#home'

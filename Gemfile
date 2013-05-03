@@ -1,19 +1,29 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.13'
+# gem 'rails', '3.2.13'
+gem 'rails', '4.0.0.beta1'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'faker', '1.0.1'
 gem 'will_paginate'   			#, '3.0.3'
 gem 'pg'
 gem 'jquery-rails'
 gem 'railties'
-gem 'carmen-rails'  # country selecter
+gem 'carmen-rails', :git => 'https://github.com/freerunningtechnologies/carmen-rails', :branch => 'rails4'  # country selecter
+gem 'turbolinks'
+# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'jbuilder', '~> 1.0.1'
+
+
+# gem 'strong_parameters'  # remove when moving to Rails 4
+
 
 group :test, :development do
   gem 'rspec-rails', '2.10.0'
   gem 'guard-rspec'				#, '0.5.5'
   gem 'guard-spork'				#, '0.3.2'
-  gem 'spork'						#, '0.9.0'
+  gem 'spork-rails', github: 'railstutorial/spork-rails', branch: 'rails-4'
+#  gem 'spork'						#, '0.9.0'
+
 end
 
 group :development do
@@ -35,7 +45,11 @@ end
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '3.2.4'
-  gem 'coffee-rails', '3.2.2'
+#  gem 'coffee-rails', '3.2.2'
+#  gem 'sass-rails',   '3.2.4'
+  gem 'sass-rails',   '4.0.0.beta1'
+  gem 'coffee-rails', '4.0.0.beta1'
   gem 'uglifier', '1.2.3'
-end
+end             
+
+

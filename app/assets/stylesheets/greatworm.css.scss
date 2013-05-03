@@ -33,7 +33,7 @@ float:left;
 }        
 
 #wrapper {
-	width: 60em;
+	width: 80em;
 	margin: 0 auto;
 }  
 
@@ -249,6 +249,12 @@ form {
   width: 100%;
   margin-top: 45px;
   @include box_sizing;
+
+	-moz-box-shadow: inset -3px -3px 3px 3px #888;
+	-webkit-box-shadow: inset -5px -5px 5px 5px #888;
+	box-shadow: inset 2px 2px 3px 3px #878;
+   border-radius: 1em;
+
 }
 
 

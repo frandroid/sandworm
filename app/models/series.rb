@@ -1,5 +1,5 @@
 class Series < ActiveRecord::Base
-  attr_accessible :name, :url, :zinewiki
+#  attr_accessible :name, :url, :zinewiki
 end
 
 # == Schema Information

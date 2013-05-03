@@ -1,12 +1,12 @@
 class ProductsController < ApplicationController  
-   before_filter :admin_user, only: [:new, :create, :edit, :update, :destroy, :index]
+before_filter :admin_user, only: [:new, :create, :edit, :update, :destroy, :index]
    
    def new
       @product = Product.new
    end
    
    def create
-      @product = Product.new(params[:product])
+      @product = Product.new(permitted_params.product)
       if @product.save
          redirect_to product_url(@product)
       else
@@ -20,12 +20,10 @@ class ProductsController < ApplicationController
   
    def update
       @product = Product.find(params[:id])
-      respond_to do |format|
-         if @product.update_attributes(params[:product]) 
-            format.html { redirect_to product_url, notice: "#{@product.name} was updated." }
-         else
-            format.html { render action: "edit" }
-         end
+      if @product.update_attributes(permitted_params.product) 
+         redirect_to product_url, notice: "#{@product.name} was updated."
+      else
+         render action: "edit"
       end
    end
    
@@ -48,5 +46,7 @@ class ProductsController < ApplicationController
    def index
       @products = Product.all
    end
+
+      #   attr_accessible :name, :subtitle, :medium_id, :series_id, :format_id, :length, :width, :height, :weight, :pages, :playtime, :pub_date, :description, :category_id, :upc, :visible, :active, :price, :can_wholesale, :wholesale_price, :cost, :inventory, :minimum_stock, :country_code
    
- end
+end

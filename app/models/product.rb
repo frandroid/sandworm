@@ -1,5 +1,5 @@
 class Product < ActiveRecord::Base
-   attr_accessible :name, :subtitle, :medium_id, :series_id, :format_id, :length, :width, :height, :weight, :pages, :playtime, :pub_date, :description, :category_id, :upc, :visible, :active, :price, :can_wholesale, :wholesale_price, :cost, :inventory, :minimum_stock, :country_code
+#   attr_accessible :name, :subtitle, :medium_id, :series_id, :format_id, :length, :width, :height, :weight, :pages, :playtime, :pub_date, :description, :category_id, :upc, :visible, :active, :price, :can_wholesale, :wholesale_price, :cost, :inventory, :minimum_stock, :country_code
 
    belongs_to :medium
    belongs_to :series
@@ -18,7 +18,7 @@ class Product < ActiveRecord::Base
 
    before_save { |product| product.upc = upc.to_s.upcase }
    
-   default_scope order: 'products.created_at DESC'
+   default_scope ->  { order('created_at DESC') }
 
 end
 

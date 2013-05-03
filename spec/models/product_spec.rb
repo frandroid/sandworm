@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Product do
 
    before do
-       @product = Product.new(name: "Doris #29", upc: "213123123")
+       @product = Product.new(name: "Doris #29", upc: "213123123", medium_id: 1, format_id: 1, inventory: 5)     
    end
       
    subject { @product }

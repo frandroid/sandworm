@@ -4,10 +4,6 @@ class SeriesController < ApplicationController
   # GET /series.json
   def index
     @series = Series.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @series }
     end
   end
 
@@ -41,16 +37,11 @@ class SeriesController < ApplicationController
   # POST /series
   # POST /series.json
   def create
-    @series = Series.new(params[:series])
-
-    respond_to do |format|
-      if @series.save
-        format.html { redirect_to @series, notice: 'Series was successfully created.' }
-        format.json { render json: @series, status: :created, location: @series }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @series.errors, status: :unprocessable_entity }
-      end
+    @series = Series.new(permitted_params.series)
+    if @series.save
+      redirect_to @series, notice: 'Series was successfully created.'
+    else
+      render action: "new"
     end
   end
 
@@ -59,14 +50,10 @@ class SeriesController < ApplicationController
   def update
     @series = Series.find(params[:id])
 
-    respond_to do |format|
-      if @series.update_attributes(params[:series])
-        format.html { redirect_to @series, notice: 'Series was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @series.errors, status: :unprocessable_entity }
-      end
+    if @series.update_attributes(permitted_params.series)
+      redirect_to @series, notice: 'Series was successfully updated.'
+    else
+      render action: "edit"
     end
   end
 
@@ -76,9 +63,6 @@ class SeriesController < ApplicationController
     @series = Series.find(params[:id])
     @series.destroy
 
-    respond_to do |format|
-      format.html { redirect_to series_index_url }
-      format.json { head :no_content }
-    end
+    redirect_to series_index_url
   end
 end

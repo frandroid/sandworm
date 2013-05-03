@@ -16,6 +16,7 @@ FactoryGirl.define do
       price       2.50
       wholesale_price   1.60
       cost        1.40
+      country_code     "CA"
    end
 end
 

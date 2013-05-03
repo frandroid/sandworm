@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 
    def create
       if !signed_in?
-         @user = User.new(params[:user])
+         @user = User.new(user_params)
          if @user.save
             sign_in @user
             flash[:success] = "Welcome to Great Worm Express Distro!"
@@ -26,14 +26,15 @@ class UsersController < ApplicationController
       end
             rescue ActiveRecord::StatementInvalid
                # Handle duplicate email addresses gracefully by redirecting.
-               redirect_to root_url
+               redirect_to root_url 
+            # endrescue
    end   
 
    def edit
    end
    
    def update
-      if @user.update_attributes(params[:user])
+      if @user.update_attributes(user_params)
          flash[:success] = "Profile updated"
          sign_in  @user
          redirect_to @user
@@ -76,7 +77,15 @@ class UsersController < ApplicationController
       def correct_user
          @user = User.find(params[:id])
          redirect_to(root_path) unless current_user?(@user)
-      end         
+      end 
+      
+      def user_params
+         if current_user && current_user.admin?
+            params.require(:user).permit!
+         else   
+            params.require(:user).permit(:email, :name, :password, :password_confirmation)
+         end
+      end
       
 end
  

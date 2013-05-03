@@ -42,7 +42,7 @@ class CategoriesController < ApplicationController
   # POST /categories
   # POST /categories.json
   def create
-    @category = Category.new(params[:category])
+    @category = Category.new((permitted_params.category))
 
     respond_to do |format|
       if @category.save
@@ -61,7 +61,7 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
 
     respond_to do |format|
-      if @category.update_attributes(params[:category])
+      if @category.update_attributes(permitted_params.category)
         format.html { redirect_to @category, notice: 'Category was successfully updated.' }
         format.json { head :no_content }
       else

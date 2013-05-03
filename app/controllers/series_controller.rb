@@ -2,9 +2,9 @@ class SeriesController < ApplicationController
    before_filter :admin_user, only: [:new, :create, :edit, :update, :destroy]
   # GET /series
   # GET /series.json
+
   def index
     @series = Series.all
-    end
   end
 
   # GET /series/1

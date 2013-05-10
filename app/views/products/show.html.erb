@@ -1,7 +1,7 @@
 
 <section>
 <h1><%= @product.name %></h1>
-
+<%= image_tag @product.cover.url(:medium) %>
 <p><strong>Description: </strong><%= @product.description %></p>
 <p>From <%= Carmen::Country.coded(@product.country_code).name %>
 <p><strong>Details: </strong>

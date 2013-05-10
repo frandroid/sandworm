@@ -11,7 +11,14 @@ class Product < ActiveRecord::Base
    validates :medium_id, presence: true
    validates :format_id, presence: true
    validates :inventory, presence: true
-   
+
+   # This method associates the attribute ":cover" with a file attachment
+   has_attached_file :cover, styles: {
+     thumb: '100x100>',
+     square: '200x200#',
+     medium: '300x300>',
+     full: '800x800>'
+   }   
    
 #   has_many :authorships
 #   has_many :authors through: :authorships

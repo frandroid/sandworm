@@ -15,14 +15,18 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.0.1'
 
 
-# gem 'strong_parameters'  # remove when moving to Rails 4
+# Paperclip bundle 
+# gem 'paperclip'
+gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
+gem 'aws-sdk', '~> 1.5.7'
+
 
 
 group :test, :development do
   gem 'rspec-rails', '2.10.0'
   gem 'guard-rspec'				#, '0.5.5'
   gem 'guard-spork'				#, '0.3.2'
-  gem 'spork-rails', github: 'railstutorial/spork-rails', branch: 'rails-4'
+  gem 'spork-rails', github: 'railstutorial/spork-rails'  #, branch: 'rails-4'
 #  gem 'spork'						#, '0.9.0'
 
 end
@@ -45,12 +49,8 @@ end
 
 # Gems used only for assets and not required
 # in production environments by default.
-group :assets do
-#  gem 'coffee-rails', '3.2.2'
-#  gem 'sass-rails',   '3.2.4'
-  gem 'sass-rails',   '4.0.0.beta1'
+  gem 'sass-rails',   '4.0.0.rc1'
   gem 'coffee-rails', '4.0.0.beta1'
   gem 'uglifier', '1.2.3'
-end             
 
 

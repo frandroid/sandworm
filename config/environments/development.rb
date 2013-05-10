@@ -37,6 +37,19 @@ Sandworm::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true                   
   config.serve_static_assets = false
+  
+  # paperclip path 
+  Paperclip.options[:command_path] = "/usr/local/bin/"
 
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => ENV['AWS_BUCKET'],
+      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+    }                                                   
+  }
+  # Paperclip::Attachment.default_options[:url] = ':s3_domain_url'
+  # Paperclip::Attachment.default_options[:path] = '/:class/:attachment/:id_partition/:style/:filename'
   
 end

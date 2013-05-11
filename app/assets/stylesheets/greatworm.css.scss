@@ -223,6 +223,20 @@ form {
   @extend .error;
  }  
 
+/* product */
+
+.cover {
+	border: 1px solid #000;
+	float: left;
+	margin: 0px 15px 5px 5px;
+}
+               
+.cell {
+	vertical-align:top;
+
+}
+
+
 
 /* users index */
 

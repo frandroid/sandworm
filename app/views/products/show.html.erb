@@ -2,6 +2,7 @@
 <section>
 <div class="cell">
 <%= render 'image' %>
+<div>
 <h1><%= @product.name %></h1>
 <p><strong>Description: </strong><%= @product.description %></p>
 <p>From <%= Carmen::Country.coded(@product.country_code).name %>
@@ -21,5 +22,6 @@
 	<p><%= link_to 'Edit', edit_product_path(@product) %>
 	 | <%= link_to "New", new_product_path %></p>
 <% end %> 
+</div>
 </div>
 </section>

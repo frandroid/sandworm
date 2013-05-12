@@ -1,5 +1,7 @@
 class StaticPagesController < ApplicationController
-  def home
+  def home   
+     @products = Product.all.paginate(page: params[:page])
+
   end
 
   def help

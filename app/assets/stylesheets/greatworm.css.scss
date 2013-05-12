@@ -227,15 +227,29 @@ form {
 
 .cover {
 	border: 1px solid #000;
-	float: left;
-	margin: 0px 15px 5px 5px;
+	margin: 0px 15px 5px 5px;  
+	background: #eee;
 }
                
-.cell {
-	vertical-align:top;
-
+.products {
 }
 
+.cell {
+   float: left;
+	margin: 0em 2em 2em 0em;
+	background: #ddd; 
+	padding: 1em;
+}
+
+.product_desc {
+	float: right;    
+}
+
+.product_desc h1 {
+	margin-top: 0px;
+
+}
+            
 
 
 /* users index */

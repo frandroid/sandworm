@@ -1,0 +1,21 @@
+<div id="<%= product.id %>" class="cell">
+	<% unless product.cover.url(:medium) =~ /(.*)missing.png/ %>	
+		<%= render partial: 'shared/image', object: product, as: 'zee_product' %>
+	<% end %>
+   <div class="product_desc">
+		<h1><%= product.name %></h1>
+		<p><strong>Description: </strong><%= product.description %></p>
+		<p>From <%= Carmen::Country.coded(product.country_code).name %>
+		<p><strong>Details: </strong>
+		<% @comma = ", " %>
+		<%= product.medium.name + @comma unless product.medium.nil? %>
+		<%= product.format.name + @comma unless product.format.nil? %>
+		<%= product.weight.to_s + "g," unless product.medium.nil? %>
+		<%= number_to_currency(product.price) unless product.price.nil? %>
+   
+		<% if !product.series.nil? && Product.where(:series_id => product.series_id).count > 1 %>
+			<p><%= link_to "See other " + product.series.name + " titles", "#" %></p>
+		<% end %>
+	</div>
+
+</div>

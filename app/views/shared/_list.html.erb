@@ -1,0 +1,6 @@
+<% if @products.any? %>
+  <div class="products">
+    <%= render partial: 'shared/product', collection: @products %>
+  </div>
+  <%= will_paginate @products %>
+<% end %>

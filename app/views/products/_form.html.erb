@@ -100,6 +100,10 @@
 		<%= f.check_box :visible %>
    </div>
 	             
+   <% unless @product.cover.url =~ /(.*)missing.png/ %>
+		<%= render partial: 'shared/image', object: @product, as: 'product' %>
+	<% end %>
+
 	<div class="field">
       <%= f.label :cover %><br />
 	   <%= f.file_field :cover %>

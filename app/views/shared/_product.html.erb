@@ -1,6 +1,6 @@
 <div id="<%= product.id %>" class="cell">
 	<% unless product.cover.url(:medium) =~ /(.*)missing.png/ %>	
-		<%= render partial: 'shared/image', object: product, as: 'zee_product' %>
+		<%= render partial: 'shared/image', object: product, as: 'product' %>
 	<% end %>
    <div class="product_desc">
 		<h1><%= product.name %></h1>

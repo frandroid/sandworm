@@ -1,0 +1,32 @@
+<% provide(:title, 'Contact') %>
+<h1>Contact me</h1>
+<p>
+Write: <strong>fran</strong><strong>droid&#9398;gm</strong><strong>ail&#9679;com</strong><br>
+Call/Text: 647-886-1507 </p>
+
+<p>Great Worm Express Distro<br>
+	P.O. Box 19013<br>
+	360A Bloor St. W.<br>
+	Toronto, ON  M5S 3C9<br>
+	Canada<br>
+</p>
+
+<p>Alternatively, you can use this contact form:</p>
+
+
+<%= form_for @contact do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :email, "Email address" %>
+  <%= f.email_field :email %>
+
+  <%= f.label :subject %>
+  <%= f.text_field :subject %>
+
+  <%= f.label :message %>
+  <%= f.text_area :message %>
+
+  <%= f.submit 'Submit' %>     
+
+<% end %>

@@ -8,13 +8,15 @@ Sandworm::Application.routes.draw do
    resources :categories
    resources :users
    resources :sessions, only: [:new, :create, :destroy]
+   resources :contacts, only: [:new, :create]
+
 
    root to: 'static_pages#home'
                                        
    match '/help',    to: "static_pages#help",     via: 'get'
    match '/about',   to: "static_pages#about",    via: :get
    match '/order',   to: "static_pages#order",    via: :get
-   match '/contact', to: "static_pages#contact",  via: :get
+   match '/contact', to: "contacts#new",  via: :get
 
    match '/signup',  to: 'users#new',             via: :get       
    match '/signin',  to: 'sessions#new',          via: :get 

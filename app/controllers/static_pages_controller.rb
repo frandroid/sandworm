@@ -13,7 +13,7 @@ class StaticPagesController < ApplicationController
   def order
   end     
   
-  def contact
-  end
-  
+  # def contact
+  # end
+  # 
 end
